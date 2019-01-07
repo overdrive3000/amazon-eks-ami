@@ -24,6 +24,7 @@ sudo yum install -y \
     ntp \
     socat \
     unzip \
+    ipvsadm \
     wget
 
 sudo systemctl enable ntpd
@@ -32,6 +33,13 @@ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 sudo python get-pip.py
 rm get-pip.py
 sudo pip install --upgrade awscli
+
+################################################################################
+### ipvs #######################################################################
+################################################################################
+
+# Ensure the IP Virtual Server Netfilter kernel module is loaded
+sudo modprobe ip_vs
 
 ################################################################################
 ### iptables ###################################################################

@@ -39,7 +39,9 @@ sudo pip install --upgrade awscli
 ################################################################################
 
 # Ensure the IP Virtual Server Netfilter kernel module is loaded
-sudo modprobe ip_vs
+sudo mv $TEMPLATE_DIR/ipvs.conf /etc/modules-load.d/ipvs.conf
+sudo chown root.root /etc/modules-load.d/ipvs.conf
+sudo chmod 644 /etc/modules-load.d/ipvs.conf
 
 ################################################################################
 ### iptables ###################################################################
